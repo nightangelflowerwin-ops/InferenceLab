@@ -1,0 +1,23 @@
+{
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "revision": "REPLACE_WITH_MODEL_COMMIT",
+  "gpu_name_contains": "RTX 4090",
+  "port": 8000,
+  "max_model_len": 4096,
+  "requests": 128,
+  "repeats": 3,
+  "seed": 42,
+  "startup_timeout": 600,
+  "benchmark_timeout": 600,
+  "grid": {
+    "seqs": [8, 32, 64],
+    "tokens": [1024, 4096],
+    "memory": [0.85, 0.9],
+    "chunked": [false, true]
+  },
+  "workloads": [
+    {"name": "short", "input": 256, "output": 128, "concurrency": 64, "request_rate": "inf"},
+    {"name": "long-prefill", "input": 3072, "output": 128, "concurrency": 64, "request_rate": "inf"},
+    {"name": "decode-heavy", "input": 256, "output": 1024, "concurrency": 64, "request_rate": "inf"}
+  ]
+}
