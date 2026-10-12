@@ -10,6 +10,8 @@ An AI inference infrastructure portfolio: serving experiments, cache routing, GP
 
 **Try Relay:** [reliable text jobs with a live dashboard](projects/16-reliable-job-runner/README.md). Run `python job_dashboard.py` to upload files, watch three worker processes and demonstrate recovery by crashing a busy worker. Python standard library only.
 
+[Where this applies: clinical operations, 15 domains and the GTM engineering workbench](DOMAIN_APPLICATION_GUIDE.md) maps proposed applications across the customer lifecycle and distinguishes them from shipped functionality.
+
 Started 2026-10-12. Project 1: high-throughput vLLM serving-engine tuning.
 
 ## Current evidence

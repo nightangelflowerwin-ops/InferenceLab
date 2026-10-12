@@ -1,5 +1,7 @@
 # Reliable text job runner
 
+For applications beyond text reports, read the [domain and GTM engineering guide](../../DOMAIN_APPLICATION_GUIDE.md). Domain workflows are proposals, not implemented features.
+
 Relay turns UTF-8 text files into reports using durable SQLite jobs and separate worker processes. Its live dashboard lets you upload files, inspect reports, download results and kill a managed worker to watch recovery. No third-party Python packages, GPU or cloud account are required.
 
 ![Relay dashboard after a recovered job and a file upload](relay-dashboard.jpg)
