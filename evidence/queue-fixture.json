@@ -1,0 +1,26 @@
+{
+  "evidence": "local fixture execution, not GPU inference or cluster autoscaling",
+  "initial": {
+    "pending_tokens": 4608,
+    "leased_tokens": 0,
+    "pending_jobs": 3,
+    "leased_jobs": 0,
+    "done_jobs": 0,
+    "dead_jobs": 0,
+    "busy_workers": 0,
+    "ready_workers": 0,
+    "draining_workers": 0
+  },
+  "desired_workers": 3,
+  "final": {
+    "pending_tokens": 0,
+    "leased_tokens": 0,
+    "pending_jobs": 0,
+    "leased_jobs": 0,
+    "done_jobs": 3,
+    "dead_jobs": 0,
+    "busy_workers": 0,
+    "ready_workers": 0,
+    "draining_workers": 0
+  }
+}

@@ -6,3 +6,6 @@ results/
 plans/
 *.log
 requirements-measured.txt
+*.db
+*.db-wal
+*.db-shm

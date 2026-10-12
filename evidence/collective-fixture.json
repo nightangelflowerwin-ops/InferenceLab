@@ -1,0 +1,25 @@
+{
+  "groups": [
+    {
+      "operation": "all_reduce",
+      "bytes": 1000000,
+      "world_size": 4,
+      "rounds": 2,
+      "p50_slowest_rank_ms": 4.0,
+      "p95_slowest_rank_ms": 4.0,
+      "median_algorithm_GB_s": 0.25,
+      "estimated_collective_bus_GB_s": 0.375,
+      "median_rank_ms": {
+        "0": 1.0,
+        "1": 2.0,
+        "2": 3.0,
+        "3": 4.0
+      },
+      "slowest_rank": "3"
+    }
+  ],
+  "caveat": "Bandwidth is derived from supplied size/time. The bus estimate uses collective normalization, not measured NIC throughput; it does not diagnose RDMA or PCIe by itself.",
+  "source_file": "fixture-collectives.jsonl",
+  "evidence": "Analysis of caller-supplied traces; hardware provenance must accompany the input",
+  "source_kind": "fixture"
+}

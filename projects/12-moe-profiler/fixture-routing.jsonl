@@ -1,0 +1,4 @@
+{"request_id":"synthetic-fixture","step":0,"layer":0,"token_id":0,"experts":[0,1],"expert_ranks":[0,0],"communication_bytes":128,"communication_ms":1}
+{"request_id":"synthetic-fixture","step":0,"layer":0,"token_id":1,"experts":[0,1],"expert_ranks":[0,0],"communication_bytes":128,"communication_ms":1}
+{"request_id":"synthetic-fixture","step":0,"layer":0,"token_id":2,"experts":[0,2],"expert_ranks":[0,1],"communication_bytes":128,"communication_ms":1}
+{"request_id":"synthetic-fixture","step":0,"layer":0,"token_id":3,"experts":[0,3],"expert_ranks":[0,1],"communication_bytes":128,"communication_ms":1}

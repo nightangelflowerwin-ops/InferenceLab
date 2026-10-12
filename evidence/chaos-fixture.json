@@ -1,0 +1,92 @@
+{
+  "evidence": "CPU fixture faults only; no GPU ECC injection, OOM allocation, real network partition, or GPU KV migration",
+  "cases": [
+    {
+      "fault": "partition",
+      "recovered": true,
+      "events": [
+        {
+          "event": "completed",
+          "replica": "a",
+          "local_elapsed_ms": 0.3208999987691641
+        },
+        {
+          "event": "fault_detected",
+          "replica": "a",
+          "fault": "partition"
+        },
+        {
+          "event": "fixture_state_migrated",
+          "replica": "b"
+        },
+        {
+          "event": "completed",
+          "replica": "b",
+          "local_elapsed_ms": 0.12260000221431255
+        },
+        {
+          "event": "restored_empty",
+          "replica": "a"
+        }
+      ]
+    },
+    {
+      "fault": "simulated_ecc",
+      "recovered": true,
+      "events": [
+        {
+          "event": "completed",
+          "replica": "a",
+          "local_elapsed_ms": 0.44710002839565277
+        },
+        {
+          "event": "fault_detected",
+          "replica": "a",
+          "fault": "simulated_ecc"
+        },
+        {
+          "event": "fixture_state_migrated",
+          "replica": "b"
+        },
+        {
+          "event": "completed",
+          "replica": "b",
+          "local_elapsed_ms": 0.49100001342594624
+        },
+        {
+          "event": "restored_empty",
+          "replica": "a"
+        }
+      ]
+    },
+    {
+      "fault": "simulated_oom",
+      "recovered": true,
+      "events": [
+        {
+          "event": "completed",
+          "replica": "a",
+          "local_elapsed_ms": 0.46720000682398677
+        },
+        {
+          "event": "fault_detected",
+          "replica": "a",
+          "fault": "simulated_oom"
+        },
+        {
+          "event": "fixture_state_migrated",
+          "replica": "b"
+        },
+        {
+          "event": "completed",
+          "replica": "b",
+          "local_elapsed_ms": 0.08749996777623892
+        },
+        {
+          "event": "restored_empty",
+          "replica": "a"
+        }
+      ]
+    }
+  ]
+}

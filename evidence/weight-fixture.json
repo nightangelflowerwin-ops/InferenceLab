@@ -1,0 +1,8 @@
+{
+  "source_kind": "synthetic_fixture",
+  "tensors": 1,
+  "payload_bytes": 16,
+  "sha256": "1a23b8e5f0a81c3fc0c931fcfafe9de37a5ac135a21c4f087a4e246d6d49fdf0",
+  "cpu_load_ms": 0.7714999956078827,
+  "evidence": "Bounded CPU-memory loader. No temporary disk copy, GPU transfer, GPU-direct I/O or inference measured."
+}

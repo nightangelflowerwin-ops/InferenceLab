@@ -1,0 +1,49 @@
+{
+  "event_count": 4,
+  "experts": 4,
+  "layers": {
+    "0": {
+      "load": [
+        4,
+        2,
+        1,
+        1
+      ],
+      "tokens": 4,
+      "rank_assignments": {
+        "0": 6,
+        "1": 2
+      },
+      "communication_bytes": 512,
+      "communication_ms": 4,
+      "communication_events": 4,
+      "assignments": 8,
+      "max_to_mean": 2.0,
+      "coefficient_of_variation": 0.6123724356957945,
+      "gini": 0.3125,
+      "effective_experts": 3.363585661014858,
+      "idle_experts": 0,
+      "hot_expert_ids": [
+        0
+      ],
+      "placement_proposal": {
+        "expert_to_rank": {
+          "0": 0,
+          "1": 1,
+          "2": 1,
+          "3": 1
+        },
+        "projected_rank_assignments": [
+          4,
+          4
+        ],
+        "projected_max_to_mean": 1.0,
+        "caveat": "Offline assignment-count heuristic only. Weight memory, topology, communication and expert replication are not modeled; a single hot expert cannot be split by placement."
+      }
+    }
+  },
+  "caveat": "Communication durations are summed event observations, not wall time or end-to-end bandwidth. No unobserved experts/ranks are inferred beyond configured expert count.",
+  "source_file": "fixture-routing.jsonl",
+  "evidence": "Analysis of caller-supplied traces; hardware provenance must accompany the input",
+  "source_kind": "fixture"
+}
