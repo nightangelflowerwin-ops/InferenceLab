@@ -44,8 +44,8 @@ def text_report(payload):
 
 def jobs(queue, limit=100):
     with queue.transaction() as db:
-        rows = db.execute('SELECT * FROM jobs ORDER BY created DESC,id LIMIT ?', (limit,)).fetchall()
-        return [{'id': row['id'], 'name': json.loads(row['payload'])['name'], 'state': row['state'],
+        rows = db.execute("SELECT id,state,owner,epoch,created,result,json_extract(payload,'$.name') AS name FROM jobs ORDER BY created DESC,id LIMIT ?", (limit,)).fetchall()
+        return [{'id': row['id'], 'name': row['name'], 'state': row['state'],
                  'worker': row['owner'], 'attempts': row['epoch'], 'created': row['created'],
                  'result': json.loads(row['result']) if row['result'] else None} for row in rows]
 
