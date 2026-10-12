@@ -1,0 +1,17 @@
+{
+  "source": "Synthetic tensor over real localhost HTTP with forced socket interruption",
+  "payload_bytes": 16,
+  "object_sha256": "1a23b8e5f0a81c3fc0c931fcfafe9de37a5ac135a21c4f087a4e246d6d49fdf0",
+  "connections": 2,
+  "requests": [
+    [
+      null,
+      null
+    ],
+    [
+      "bytes=44-",
+      "\"fixture-v1\""
+    ]
+  ],
+  "gpu_upload": false
+}

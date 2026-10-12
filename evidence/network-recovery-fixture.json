@@ -1,0 +1,27 @@
+{
+  "received_events": [
+    [
+      0,
+      "CPU-fixture:"
+    ],
+    [
+      1,
+      "one"
+    ],
+    [
+      2,
+      "two"
+    ],
+    [
+      3,
+      "three"
+    ],
+    [
+      4,
+      "four"
+    ]
+  ],
+  "completed": true,
+  "replicas_used": 2,
+  "evidence": "Real localhost socket interruption and explicit event-ID resume via a shared durable CPU fixture ledger; no real network partition, model token recovery or GPU KV migration"
+}

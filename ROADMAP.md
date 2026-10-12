@@ -16,6 +16,6 @@ All 15 projects are indexed here for public visibility. Planned entries are requ
 | [Semantic Cache Layer](projects/10-semantic-cache/README.md) | SQLite cache, Redis/Qdrant adapters and labeled reuse evaluator implemented; real service CI and semantic model evidence separated |
 | [DCGM Observability and Throttling Dashboard](projects/11-dcgm-dashboard/README.md) | Snapshot checks, fixture exporter, Grafana/Prometheus stack and CI validation implemented; DCGM hardware pending |
 | [MoE Load Profiler](projects/12-moe-profiler/README.md) | Trace analyzer and offline placement proposals tested; GPU collection pending |
-| [Inference Chaos and Fault Tolerance Suite](projects/13-inference-chaos/README.md) | CPU fixture recovery suite tested; network and durable recovery work remains |
-| [Checkpointing and Weight Streaming Engine](projects/14-weight-streaming/README.md) | Bounded CPU-memory safetensors streamer tested; resume/sharding and GPU upload remain |
+| [Inference Chaos and Fault Tolerance Suite](projects/13-inference-chaos/README.md) | CPU fixture faults, SQLite restart recovery and real localhost interrupted-stream resume tested; GPU recovery pending |
+| [Checkpointing and Weight Streaming Engine](projects/14-weight-streaming/README.md) | Bounded CPU-memory loader, ETag-pinned HTTP resume and sharded indexes tested; GPU upload pending |
 | [Public Inference Benchmark Teardown](projects/15-public-benchmarks/README.md) | Repeated-run/Pareto reporter and three methodology articles implemented; charts are synthetic; real GPU comparisons pending |

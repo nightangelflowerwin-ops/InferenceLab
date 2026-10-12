@@ -30,11 +30,12 @@ class FixtureReplica:
 
 
 class RecoveringCluster:
-    def __init__(self, names=("a", "b")):
+    def __init__(self, names=("a", "b"), store=None):
         self.replicas = {name: FixtureReplica(name) for name in names}
         self.healthy = set(names)
         self.checkpoints, self.completed = {}, {}
         self.events = []
+        self.store = store
 
     def inject(self, replica, fault):
         if fault not in ("partition", "simulated_ecc", "simulated_oom"):
@@ -52,6 +53,10 @@ class RecoveringCluster:
         if not isinstance(context, str):
             raise ValueError("String fixture context required")
         key = checksum(context)
+        if self.store and request_id not in self.completed:
+            persisted = self.store.read('completions', request_id)
+            if persisted is not None:
+                self.completed[request_id] = persisted
         if request_id in self.completed:
             old = self.completed[request_id]
             if old["answer_checksum"] != key:
@@ -63,6 +68,12 @@ class RecoveringCluster:
             start = time.perf_counter()
             try:
                 checkpoint = self.checkpoints.get(key)
+                if self.store and checkpoint is None:
+                    from recovery_store import CorruptState
+                    try:
+                        checkpoint = self.store.read('checkpoints', key)
+                    except CorruptState:
+                        self.events.append(dict(event='durable_checkpoint_rejected', replica=name))
                 if checkpoint and key not in node.cache:
                     content = json.loads(checkpoint["data"])
                     if checksum(content) == checkpoint["checksum"]:
@@ -73,6 +84,8 @@ class RecoveringCluster:
                 response = node.admit(key, context)
                 state = node.cache[key]
                 self.checkpoints[key] = dict(data=json.dumps(state), checksum=checksum(state))
+                if self.store:
+                    response = self.store.record_success(request_id, response, key, self.checkpoints[key])
                 self.completed[request_id] = response
                 self.events.append(dict(event="completed", replica=name,
                                         local_elapsed_ms=(time.perf_counter() - start) * 1000))

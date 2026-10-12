@@ -70,8 +70,8 @@ Official references checked while building:
 | 10. Semantic caching | SQLite/Redis/Qdrant adapters, HTTP cache and labeled reuse evaluator implemented | Real semantic embedding and model-answer-quality evaluation |
 | 11. GPU observability | Snapshot checks, fixture exporter, Grafana/Prometheus stack implemented | NVIDIA DCGM metrics and thermal tests |
 | 12. MoE profiling | Trace analysis and placement proposal tools implemented | Expert-parallel deployment |
-| 13. Chaos suite | Isolated fixture recovery implemented; real network tests pending | Recovery tests on an owned GPU cluster |
-| 14. Weight streaming | CPU safetensors stream loader implemented; resume/sharding pending | GPU transfer and cold-start measurement |
+| 13. Chaos suite | CPU fixture recovery, durable restarts and interrupted localhost streams tested | Recovery tests on an owned GPU cluster |
+| 14. Weight streaming | CPU safetensors loader, resumable HTTP reads and sharded indexes tested | GPU transfer and cold-start measurement |
 | 15. Public teardown | Repeated-run/Pareto reporter and three methodology articles implemented | Three real measured GPU comparisons pending |
 
-Every project now has supporting implementation or source preparation, but additional non-GPU integration/recovery work remains in several projects. None claims real GPU performance. See ROADMAP.md and each project page for exact remaining work. Inspect [local fixture evidence](evidence/README.md) and the [three benchmark methodology articles](projects/15-public-benchmarks/README.md).
+All 15 projects now have locally validated non-GPU implementations or GPU source preparation. See [the requirement audit](NON_GPU_AUDIT.md) for coverage and limits. None claims real GPU performance. See ROADMAP.md and each project page for exact remaining work. Inspect [local fixture evidence](evidence/README.md) and the [three benchmark methodology articles](projects/15-public-benchmarks/README.md).

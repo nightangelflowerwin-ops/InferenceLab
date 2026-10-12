@@ -11,7 +11,16 @@ For an object you control, `--url` accepts an HTTPS object URL, including a pres
 
 The loader validates the header length, unique tensor names, supported dtype, shape/byte agreement and contiguous nonoverlapping offsets before allocating the bounded payload. It reads chunks into one CPU bytearray and exposes read-only tensor memoryviews without another tensor copy. A SHA-256 check can reject changed files. Truncation and trailing bytes are rejected. It never executes model code or creates a temporary weight file.
 
-Limits: the whole supported payload must fit the chosen CPU-memory cap. Peak memory also includes a bounded header and one chunk; it is not a guarantee about the process's total RSS. The supported dtype subset is explicitly listed in source; sub-byte formats are not supported. Checksums are integrity checks, not source authentication. No resume/range fetching, sharded model index, GPU upload, inference warmup or GPU-ready cold-start timing is implemented yet.
+`range_stream.py` adds resumable HTTP reads pinned to a strong opaque ETag. A dropped connection reconnects with `Range` and `If-Match`; changed objects, ignored ranges, inconsistent sizes and exhausted retry budgets fail closed. The server must provide Content-Length, a strong ETag and byte-range support. Tests interrupt an actual localhost response during its header bytes and verify the reconstructed file hash and exact resume offset.
+
+```powershell
+python range_stream.py --url YOUR_OBJECT_URL --sha256 EXPECTED_SHA256 --max-mib 256 --out results/resumed-object.json
+python range_stream.py --index model.safetensors.index.json --directory YOUR_SHARD_DIRECTORY --max-mib 256 --max-total-mib 1024 --out results/shards.json
+```
+
+Sharded indexes use `weight_map` and bounded `metadata.total_size`. Safe flat filenames, exact tensor membership, aggregate bytes and optional `shard_sha256` hashes are checked. `--object-url-map` replaces `--directory` with a local JSON map of shard names to individual signed object URLs. Reports omit URLs. No temporary weight file is created for HTTP loading.
+
+Limits: each supported shard payload must fit the chosen CPU-memory cap. Peak memory also includes a bounded header and one chunk; it is not a guarantee about total process RSS. Consumers retaining yielded buffers can accumulate memory. The supported dtype subset is explicitly listed in source; sub-byte formats are not supported. Checksums and ETags provide integrity/object identity, not source authentication. GPU upload, inference warmup and GPU-ready cold-start timing remain unimplemented.
 
 The reported CPU load duration includes source opening and reading. For meaningful cold-start comparisons, use the same file and hash, repeat with controlled OS caching, and separately measure network download, parsing, CPU copies, GPU transfer and inference readiness. The tiny fixture is a correctness exercise, not a throughput benchmark.
 
