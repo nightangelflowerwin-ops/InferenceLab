@@ -1,0 +1,524 @@
+{
+  "contexts": [
+    {
+      "context": {
+        "hardware": "SYNTHETIC-HARDWARE, no GPU used",
+        "model_revision": "fixture-model-v1",
+        "tokenizer_revision": "fixture-tokenizer-v1",
+        "workload": "decode-heavy",
+        "input_tokens": 256,
+        "output_tokens": 1024,
+        "request_count": 64,
+        "source_kind": "fixture",
+        "concurrency": 64,
+        "request_rate": "inf",
+        "arrival_process": "closed-loop",
+        "sampling_policy": "fixed-output-greedy-fixture",
+        "warmup_requests": 8,
+        "seed": 42
+      },
+      "candidates": [
+        {
+          "engine": "SGLang-fixture",
+          "candidate": "configuration-b",
+          "engine_version": "fixture-only-v1",
+          "runs": 3,
+          "complete_runs": 3,
+          "eligible": true,
+          "failure_rate": 0.0,
+          "run_ids": [
+            "decode-heavy-configuration-b-0",
+            "decode-heavy-configuration-b-1",
+            "decode-heavy-configuration-b-2"
+          ],
+          "cost_sources": [
+            "Invented illustrative total-footprint price; not a quote or bill"
+          ],
+          "output_tokens_s": 1285.0196078431372,
+          "output_tokens_s_bootstrap_interval": [
+            1247.5918522748905,
+            1324.7624823125127
+          ],
+          "p95_ttft_ms": 220.00000000000003,
+          "p95_ttft_ms_bootstrap_interval": [
+            213.40000000000003,
+            226.60000000000002
+          ],
+          "p95_itl_ms": 49.8046875,
+          "p95_itl_ms_bootstrap_interval": [
+            48.310546875,
+            51.298828125
+          ],
+          "usd_per_million_output_tokens": 0.5171034071180556,
+          "usd_per_million_output_tokens_bootstrap_interval": [
+            0.5041334364149306,
+            0.5300733778211806
+          ],
+          "three_objective_pareto": true
+        },
+        {
+          "engine": "TensorRT-LLM-fixture",
+          "candidate": "configuration-c",
+          "engine_version": "fixture-only-v1",
+          "runs": 3,
+          "complete_runs": 3,
+          "eligible": true,
+          "failure_rate": 0.0,
+          "run_ids": [
+            "decode-heavy-configuration-c-0",
+            "decode-heavy-configuration-c-1",
+            "decode-heavy-configuration-c-2"
+          ],
+          "cost_sources": [
+            "Invented illustrative total-footprint price; not a quote or bill"
+          ],
+          "output_tokens_s": 1456.3555555555556,
+          "output_tokens_s_bootstrap_interval": [
+            1413.9374325782092,
+            1501.397479954181
+          ],
+          "p95_ttft_ms": 240.0,
+          "p95_ttft_ms_bootstrap_interval": [
+            232.79999999999998,
+            247.20000000000002
+          ],
+          "p95_itl_ms": 43.9453125,
+          "p95_itl_ms_bootstrap_interval": [
+            42.626953125,
+            45.263671875
+          ],
+          "usd_per_million_output_tokens": 0.6993611653645833,
+          "usd_per_million_output_tokens_bootstrap_interval": [
+            0.6821950276692708,
+            0.7165273030598959
+          ],
+          "three_objective_pareto": true
+        },
+        {
+          "engine": "vLLM-fixture",
+          "candidate": "configuration-a",
+          "engine_version": "fixture-only-v1",
+          "runs": 3,
+          "complete_runs": 3,
+          "eligible": true,
+          "failure_rate": 0.0,
+          "run_ids": [
+            "decode-heavy-configuration-a-0",
+            "decode-heavy-configuration-a-1",
+            "decode-heavy-configuration-a-2"
+          ],
+          "cost_sources": [
+            "Invented illustrative total-footprint price; not a quote or bill"
+          ],
+          "output_tokens_s": 1092.2666666666667,
+          "output_tokens_s_bootstrap_interval": [
+            1060.4530744336569,
+            1126.0481099656358
+          ],
+          "p95_ttft_ms": 160.0,
+          "p95_ttft_ms_bootstrap_interval": [
+            155.2,
+            164.8
+          ],
+          "p95_itl_ms": 58.59375,
+          "p95_itl_ms_bootstrap_interval": [
+            56.83593749999999,
+            60.35156250000001
+          ],
+          "usd_per_million_output_tokens": 0.5933973524305556,
+          "usd_per_million_output_tokens_bootstrap_interval": [
+            0.5781385633680555,
+            0.6086561414930557
+          ],
+          "three_objective_pareto": true
+        },
+        {
+          "engine": "vLLM-fixture",
+          "candidate": "dominated-control",
+          "engine_version": "fixture-only-v1",
+          "runs": 3,
+          "complete_runs": 3,
+          "eligible": true,
+          "failure_rate": 0.0,
+          "run_ids": [
+            "decode-heavy-dominated-control-0",
+            "decode-heavy-dominated-control-1",
+            "decode-heavy-dominated-control-2"
+          ],
+          "cost_sources": [
+            "Invented illustrative total-footprint price; not a quote or bill"
+          ],
+          "output_tokens_s": 728.1777777777778,
+          "output_tokens_s_bootstrap_interval": [
+            706.9687162891046,
+            750.6987399770906
+          ],
+          "p95_ttft_ms": 300.0,
+          "p95_ttft_ms_bootstrap_interval": [
+            291.0,
+            309.0
+          ],
+          "p95_itl_ms": 87.890625,
+          "p95_itl_ms_bootstrap_interval": [
+            85.25390625,
+            90.52734375
+          ],
+          "usd_per_million_output_tokens": 1.2715657552083333,
+          "usd_per_million_output_tokens_bootstrap_interval": [
+            1.2372334798177083,
+            1.3058980305989585
+          ],
+          "three_objective_pareto": false
+        }
+      ]
+    },
+    {
+      "context": {
+        "hardware": "SYNTHETIC-HARDWARE, no GPU used",
+        "model_revision": "fixture-model-v1",
+        "tokenizer_revision": "fixture-tokenizer-v1",
+        "workload": "long-prefill",
+        "input_tokens": 3072,
+        "output_tokens": 128,
+        "request_count": 64,
+        "source_kind": "fixture",
+        "concurrency": 64,
+        "request_rate": "inf",
+        "arrival_process": "closed-loop",
+        "sampling_policy": "fixed-output-greedy-fixture",
+        "warmup_requests": 8,
+        "seed": 42
+      },
+      "candidates": [
+        {
+          "engine": "SGLang-fixture",
+          "candidate": "configuration-b",
+          "engine_version": "fixture-only-v1",
+          "runs": 3,
+          "complete_runs": 3,
+          "eligible": true,
+          "failure_rate": 0.0,
+          "run_ids": [
+            "long-prefill-configuration-b-0",
+            "long-prefill-configuration-b-1",
+            "long-prefill-configuration-b-2"
+          ],
+          "cost_sources": [
+            "Invented illustrative total-footprint price; not a quote or bill"
+          ],
+          "output_tokens_s": 321.2549019607843,
+          "output_tokens_s_bootstrap_interval": [
+            311.8979630687226,
+            331.1906205781282
+          ],
+          "p95_ttft_ms": 880.0000000000001,
+          "p95_ttft_ms_bootstrap_interval": [
+            853.6000000000001,
+            906.4000000000001
+          ],
+          "p95_itl_ms": 199.21875,
+          "p95_itl_ms_bootstrap_interval": [
+            193.2421875,
+            205.1953125
+          ],
+          "usd_per_million_output_tokens": 2.407497829861111,
+          "usd_per_million_output_tokens_bootstrap_interval": [
+            2.355617947048611,
+            2.459377712673611
+          ],
+          "three_objective_pareto": true
+        },
+        {
+          "engine": "TensorRT-LLM-fixture",
+          "candidate": "configuration-c",
+          "engine_version": "fixture-only-v1",
+          "runs": 3,
+          "complete_runs": 3,
+          "eligible": true,
+          "failure_rate": 0.0,
+          "run_ids": [
+            "long-prefill-configuration-c-0",
+            "long-prefill-configuration-c-1",
+            "long-prefill-configuration-c-2"
+          ],
+          "cost_sources": [
+            "Invented illustrative total-footprint price; not a quote or bill"
+          ],
+          "output_tokens_s": 364.0888888888889,
+          "output_tokens_s_bootstrap_interval": [
+            353.4843581445523,
+            375.3493699885453
+          ],
+          "p95_ttft_ms": 960.0,
+          "p95_ttft_ms_bootstrap_interval": [
+            931.1999999999999,
+            988.8000000000001
+          ],
+          "p95_itl_ms": 175.78125,
+          "p95_itl_ms_bootstrap_interval": [
+            170.5078125,
+            181.0546875
+          ],
+          "usd_per_million_output_tokens": 3.306070963541667,
+          "usd_per_million_output_tokens_bootstrap_interval": [
+            3.237406412760416,
+            3.3747355143229165
+          ],
+          "three_objective_pareto": true
+        },
+        {
+          "engine": "vLLM-fixture",
+          "candidate": "configuration-a",
+          "engine_version": "fixture-only-v1",
+          "runs": 3,
+          "complete_runs": 3,
+          "eligible": true,
+          "failure_rate": 0.0,
+          "run_ids": [
+            "long-prefill-configuration-a-0",
+            "long-prefill-configuration-a-1",
+            "long-prefill-configuration-a-2"
+          ],
+          "cost_sources": [
+            "Invented illustrative total-footprint price; not a quote or bill"
+          ],
+          "output_tokens_s": 273.06666666666666,
+          "output_tokens_s_bootstrap_interval": [
+            265.1132686084142,
+            281.51202749140896
+          ],
+          "p95_ttft_ms": 640.0,
+          "p95_ttft_ms_bootstrap_interval": [
+            620.8,
+            659.2
+          ],
+          "p95_itl_ms": 234.375,
+          "p95_itl_ms_bootstrap_interval": [
+            227.34374999999997,
+            241.40625000000003
+          ],
+          "usd_per_million_output_tokens": 2.712673611111111,
+          "usd_per_million_output_tokens_bootstrap_interval": [
+            2.6516384548611107,
+            2.7737087673611116
+          ],
+          "three_objective_pareto": true
+        },
+        {
+          "engine": "vLLM-fixture",
+          "candidate": "dominated-control",
+          "engine_version": "fixture-only-v1",
+          "runs": 3,
+          "complete_runs": 3,
+          "eligible": true,
+          "failure_rate": 0.0,
+          "run_ids": [
+            "long-prefill-dominated-control-0",
+            "long-prefill-dominated-control-1",
+            "long-prefill-dominated-control-2"
+          ],
+          "cost_sources": [
+            "Invented illustrative total-footprint price; not a quote or bill"
+          ],
+          "output_tokens_s": 182.04444444444445,
+          "output_tokens_s_bootstrap_interval": [
+            176.74217907227614,
+            187.67468499427264
+          ],
+          "p95_ttft_ms": 1200.0,
+          "p95_ttft_ms_bootstrap_interval": [
+            1164.0,
+            1236.0
+          ],
+          "p95_itl_ms": 351.5625,
+          "p95_itl_ms_bootstrap_interval": [
+            341.015625,
+            362.109375
+          ],
+          "usd_per_million_output_tokens": 5.594889322916666,
+          "usd_per_million_output_tokens_bootstrap_interval": [
+            5.457560221354166,
+            5.732218424479167
+          ],
+          "three_objective_pareto": false
+        }
+      ]
+    },
+    {
+      "context": {
+        "hardware": "SYNTHETIC-HARDWARE, no GPU used",
+        "model_revision": "fixture-model-v1",
+        "tokenizer_revision": "fixture-tokenizer-v1",
+        "workload": "short-prompts",
+        "input_tokens": 256,
+        "output_tokens": 128,
+        "request_count": 64,
+        "source_kind": "fixture",
+        "concurrency": 64,
+        "request_rate": "inf",
+        "arrival_process": "closed-loop",
+        "sampling_policy": "fixed-output-greedy-fixture",
+        "warmup_requests": 8,
+        "seed": 42
+      },
+      "candidates": [
+        {
+          "engine": "SGLang-fixture",
+          "candidate": "configuration-b",
+          "engine_version": "fixture-only-v1",
+          "runs": 3,
+          "complete_runs": 3,
+          "eligible": true,
+          "failure_rate": 0.0,
+          "run_ids": [
+            "short-prompts-configuration-b-0",
+            "short-prompts-configuration-b-1",
+            "short-prompts-configuration-b-2"
+          ],
+          "cost_sources": [
+            "Invented illustrative total-footprint price; not a quote or bill"
+          ],
+          "output_tokens_s": 963.7647058823529,
+          "output_tokens_s_bootstrap_interval": [
+            935.6938892061678,
+            993.5718617343846
+          ],
+          "p95_ttft_ms": 110.00000000000001,
+          "p95_ttft_ms_bootstrap_interval": [
+            106.70000000000002,
+            113.30000000000001
+          ],
+          "p95_itl_ms": 66.40625,
+          "p95_itl_ms_bootstrap_interval": [
+            64.4140625,
+            68.3984375
+          ],
+          "usd_per_million_output_tokens": 1.2546115451388888,
+          "usd_per_million_output_tokens_bootstrap_interval": [
+            1.2373182508680554,
+            1.2719048394097225
+          ],
+          "three_objective_pareto": true
+        },
+        {
+          "engine": "TensorRT-LLM-fixture",
+          "candidate": "configuration-c",
+          "engine_version": "fixture-only-v1",
+          "runs": 3,
+          "complete_runs": 3,
+          "eligible": true,
+          "failure_rate": 0.0,
+          "run_ids": [
+            "short-prompts-configuration-c-0",
+            "short-prompts-configuration-c-1",
+            "short-prompts-configuration-c-2"
+          ],
+          "cost_sources": [
+            "Invented illustrative total-footprint price; not a quote or bill"
+          ],
+          "output_tokens_s": 1092.2666666666667,
+          "output_tokens_s_bootstrap_interval": [
+            1060.4530744336569,
+            1126.0481099656358
+          ],
+          "p95_ttft_ms": 120.0,
+          "p95_ttft_ms_bootstrap_interval": [
+            116.39999999999999,
+            123.60000000000001
+          ],
+          "p95_itl_ms": 58.59375,
+          "p95_itl_ms_bootstrap_interval": [
+            56.83593749999999,
+            60.35156250000001
+          ],
+          "usd_per_million_output_tokens": 1.7801920572916667,
+          "usd_per_million_output_tokens_bootstrap_interval": [
+            1.7573038736979165,
+            1.8030802408854167
+          ],
+          "three_objective_pareto": true
+        },
+        {
+          "engine": "vLLM-fixture",
+          "candidate": "configuration-a",
+          "engine_version": "fixture-only-v1",
+          "runs": 3,
+          "complete_runs": 3,
+          "eligible": true,
+          "failure_rate": 0.0,
+          "run_ids": [
+            "short-prompts-configuration-a-0",
+            "short-prompts-configuration-a-1",
+            "short-prompts-configuration-a-2"
+          ],
+          "cost_sources": [
+            "Invented illustrative total-footprint price; not a quote or bill"
+          ],
+          "output_tokens_s": 819.2,
+          "output_tokens_s_bootstrap_interval": [
+            795.3398058252427,
+            844.5360824742269
+          ],
+          "p95_ttft_ms": 80.0,
+          "p95_ttft_ms_bootstrap_interval": [
+            77.6,
+            82.4
+          ],
+          "p95_itl_ms": 78.125,
+          "p95_itl_ms_bootstrap_interval": [
+            75.78125,
+            80.46875
+          ],
+          "usd_per_million_output_tokens": 1.3563368055555556,
+          "usd_per_million_output_tokens_bootstrap_interval": [
+            1.335991753472222,
+            1.376681857638889
+          ],
+          "three_objective_pareto": true
+        },
+        {
+          "engine": "vLLM-fixture",
+          "candidate": "dominated-control",
+          "engine_version": "fixture-only-v1",
+          "runs": 3,
+          "complete_runs": 3,
+          "eligible": true,
+          "failure_rate": 0.0,
+          "run_ids": [
+            "short-prompts-dominated-control-0",
+            "short-prompts-dominated-control-1",
+            "short-prompts-dominated-control-2"
+          ],
+          "cost_sources": [
+            "Invented illustrative total-footprint price; not a quote or bill"
+          ],
+          "output_tokens_s": 546.1333333333333,
+          "output_tokens_s_bootstrap_interval": [
+            530.2265372168284,
+            563.0240549828179
+          ],
+          "p95_ttft_ms": 150.0,
+          "p95_ttft_ms_bootstrap_interval": [
+            145.5,
+            154.5
+          ],
+          "p95_itl_ms": 117.1875,
+          "p95_itl_ms_bootstrap_interval": [
+            113.67187499999999,
+            120.70312500000001
+          ],
+          "usd_per_million_output_tokens": 2.5431315104166665,
+          "usd_per_million_output_tokens_bootstrap_interval": [
+            2.4973551432291665,
+            2.588907877604167
+          ],
+          "three_objective_pareto": false
+        }
+      ]
+    }
+  ],
+  "minimum_repeats": 3,
+  "bootstrap_seed": 42,
+  "evidence": "Derived analysis of supplied rows. A source label is caller provenance, not independent hardware attestation. Fixture records must never be cited as engine measurements.",
+  "input_sha256": "f593983503c81bda3920ea962849d6941f89c8bef2eca0f58a8679b3df549468"
+}

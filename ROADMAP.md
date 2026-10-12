@@ -18,4 +18,4 @@ All 15 projects are indexed here for public visibility. Planned entries are requ
 | [MoE Load Profiler](projects/12-moe-profiler/README.md) | Trace analyzer and offline placement proposals tested; GPU collection pending |
 | [Inference Chaos and Fault Tolerance Suite](projects/13-inference-chaos/README.md) | CPU fixture recovery suite tested; network and durable recovery work remains |
 | [Checkpointing and Weight Streaming Engine](projects/14-weight-streaming/README.md) | Bounded CPU-memory safetensors streamer tested; resume/sharding and GPU upload remain |
-| [Public Inference Benchmark Teardown](projects/15-public-benchmarks/README.md) | Planned |
+| [Public Inference Benchmark Teardown](projects/15-public-benchmarks/README.md) | Repeated-run/Pareto reporter and three methodology articles implemented; charts are synthetic; real GPU comparisons pending |

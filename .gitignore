@@ -9,3 +9,4 @@ requirements-measured.txt
 *.db
 *.db-wal
 *.db-shm
+.matplotlib-ci/

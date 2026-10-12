@@ -4,7 +4,7 @@
 
 An AI inference infrastructure portfolio: serving experiments, cache routing, GPU optimization and reproducible performance evidence.
 
-**Implemented:** serving/routing harnesses, opt-in response caching with Redis/Qdrant adapters, queue autoscaling, trace profilers, CPU fault recovery/weight streaming, separate prefill/decode fixture pools, FP8/corpus/perplexity tools and a Grafana/Prometheus fixture stack. CPU RMSNorm/speculative references are tested; Triton and ModelOpt CUDA source is prepared but unverified on GPU. **Measured GPU results:** none yet.
+**Implemented:** serving/routing harnesses, response caching, queue autoscaling, trace profilers, CPU recovery/weight streaming, separate prefill/decode fixture pools, FP8/corpus/perplexity tools, a Grafana/Prometheus fixture stack and Pareto reporting. CPU RMSNorm/speculative references are tested; Triton/ModelOpt CUDA source is prepared but unverified on GPU. **Measured GPU results:** none yet.
 
 [Explore all 15 projects and their status](ROADMAP.md) | [Prefix routing implementation](projects/02-prefix-routing/README.md)
 
@@ -72,6 +72,6 @@ Official references checked while building:
 | 12. MoE profiling | Trace analysis and placement proposal tools implemented | Expert-parallel deployment |
 | 13. Chaos suite | Isolated fixture recovery implemented; real network tests pending | Recovery tests on an owned GPU cluster |
 | 14. Weight streaming | CPU safetensors stream loader implemented; resume/sharding pending | GPU transfer and cold-start measurement |
-| 15. Public teardown | Planned: Reproducible report templates | Three measured comparisons before publication |
+| 15. Public teardown | Repeated-run/Pareto reporter and three methodology articles implemented | Three real measured GPU comparisons pending |
 
-Supporting implementations or source preparation now cover projects 1 through 14. Project 15's benchmark reporting is still planned, and several implemented projects have additional non-GPU integration work. None claims real GPU performance. See ROADMAP.md and each project page for exact remaining work. [Local fixture evidence](evidence/README.md) is available for inspection.
+Every project now has supporting implementation or source preparation, but additional non-GPU integration/recovery work remains in several projects. None claims real GPU performance. See ROADMAP.md and each project page for exact remaining work. Inspect [local fixture evidence](evidence/README.md) and the [three benchmark methodology articles](projects/15-public-benchmarks/README.md).
