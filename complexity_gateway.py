@@ -10,6 +10,7 @@ import json
 import math
 from pathlib import Path
 import re
+import sqlite3
 import threading
 import time
 import urllib.error
@@ -168,7 +169,7 @@ def gateway_handler(policy, backends, cache=None, embedding_revision=None, max_i
                             headers["X-Cache"] = "hit"
                             return self.respond(200, response, headers)
                         headers["X-Cache"] = "miss"
-                except (OSError, ValueError, KeyError, TypeError):
+                except (OSError, ValueError, KeyError, TypeError, sqlite3.Error):
                     cache_id, embedding = None, None
                     headers["X-Cache"] = "unavailable"
                     with lock:
@@ -211,7 +212,7 @@ def gateway_handler(policy, backends, cache=None, embedding_revision=None, max_i
             if cache_id and embedding is not None:
                 try:
                     cache.put(cache_id[0], embedding, response)
-                except (OSError, ValueError, TypeError):
+                except (OSError, ValueError, TypeError, sqlite3.Error):
                     with lock:
                         counters["cache_errors"] += 1
             return self.respond(200, response, headers)

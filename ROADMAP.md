@@ -6,8 +6,8 @@ All 15 projects are indexed here for public visibility. Planned entries are requ
 | --- | --- |
 | [High Throughput Serving Engine Tuning](projects/01-serving-tuning/README.md) | Local harness tested; GPU benchmark pending |
 | [KV Cache Prefix Routing Proxy](projects/02-prefix-routing/README.md) | Local proxy and HTTP integration tests implemented; GPU cache evidence pending |
-| [Custom Fused Triton Kernel](projects/03-triton-kernel/README.md) | Planned |
-| [Speculative Decoding Pipeline](projects/04-speculative-decoding/README.md) | Planned |
+| [Custom Fused Triton Kernel](projects/03-triton-kernel/README.md) | CPU oracle tested; Triton source and benchmark runner prepared; GPU compilation/correctness pending |
+| [Speculative Decoding Pipeline](projects/04-speculative-decoding/README.md) | CPU rejection-sampling and generation reference tested; serving argv prepared; model execution pending |
 | [Disaggregated Prefill Decode Cluster](projects/05-prefill-decode/README.md) | Planned |
 | [FP8 Quantization and Calibration Harness](projects/06-fp8-calibration/README.md) | Planned |
 | [Queue Based GPU Autoscaler](projects/07-gpu-autoscaler/README.md) | Local durable queue, fixture autoscaler, drain workers and metrics tested; KEDA integration template supplied |

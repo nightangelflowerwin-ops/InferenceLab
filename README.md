@@ -4,7 +4,7 @@
 
 An AI inference infrastructure portfolio: serving experiments, cache routing, GPU optimization and reproducible performance evidence.
 
-**Implemented:** vLLM experiment runner, prefix and complexity routing proxies, opt-in cosine response caching with Redis/Qdrant adapters, durable token queue with fixture autoscaling, MoE/collective trace analyzers, isolated CPU fault/recovery suite and bounded CPU-memory weight streamer. **Measured GPU results:** none yet.
+**Implemented:** serving/routing harnesses, opt-in cosine response caching with Redis/Qdrant adapters, durable token queue with fixture autoscaling, trace profilers, CPU fault recovery and weight streaming, plus CPU RMSNorm and speculative-sampling references. Triton kernel source and its GPU benchmark runner are prepared but unverified on GPU. **Measured GPU results:** none yet.
 
 [Explore all 15 projects and their status](ROADMAP.md) | [Prefix routing implementation](projects/02-prefix-routing/README.md)
 
@@ -60,8 +60,8 @@ Official references checked while building:
 | --- | --- | --- |
 | 1. Serving tuning | Harness implemented, offline validation | Deploy and measure on a specific CUDA GPU |
 | 2. Prefix routing | Local HTTP/SSE proxy and routing tests implemented | Prove cache hits and TTFT with real replicas |
-| 3. Fused RMSNorm | Planned: Kernel source and numerical test design | Triton correctness and GPU timing |
-| 4. Speculative decode | Planned: Acceptance/speed methodology | Compatible draft/target deployment and quality checks |
+| 3. Fused RMSNorm | CPU oracle tested; Triton source and GPU benchmark runner prepared | Triton compilation, correctness and GPU timing |
+| 4. Speculative decode | CPU rejection-sampling and generation reference tested; serving argv prepared | Compatible draft/target deployment, quality checks and timings |
 | 5. Prefill/decode pools | Planned: Routing and failure contract | Real KV transfer and separate GPU pools |
 | 6. FP8 calibration | Planned: Corpus and quality evaluation harness | Supported GPU and TensorRT-LLM measurements |
 | 7. Autoscaling | Durable queue, local autoscaler, drain tests and metrics implemented | GPU Kubernetes scale-out and interruption tests |
@@ -74,4 +74,4 @@ Official references checked while building:
 | 14. Weight streaming | CPU safetensors stream loader implemented; resume/sharding pending | GPU transfer and cold-start measurement |
 | 15. Public teardown | Planned: Reproducible report templates | Three measured comparisons before publication |
 
-Supporting implementations now cover projects 1, 2, 7, 8, 9, 10, 12, 13 and 14. Several still have additional non-GPU work; none claims real GPU performance. See ROADMAP.md and each project page for exact remaining work. [Local fixture evidence](evidence/README.md) is available for inspection.
+Supporting implementations or source preparation now cover projects 1, 2, 3, 4, 7, 8, 9, 10, 12, 13 and 14. Several still have additional non-GPU work; none claims real GPU performance. See ROADMAP.md and each project page for exact remaining work. [Local fixture evidence](evidence/README.md) is available for inspection.

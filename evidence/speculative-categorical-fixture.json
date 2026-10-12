@@ -1,0 +1,18 @@
+{
+  "trials": 20000,
+  "seed": 42,
+  "target_distribution": [
+    0.8,
+    0.2
+  ],
+  "draft_distribution": [
+    0.2,
+    0.8
+  ],
+  "observed_first_token_distribution": [
+    0.8032,
+    0.1968
+  ],
+  "accepted_proposal_fraction": 0.163725,
+  "evidence": "CPU categorical distribution fixture. Does not establish real LLM quality, batched GPU execution or decode speedup."
+}
