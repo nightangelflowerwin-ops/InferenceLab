@@ -66,7 +66,7 @@ Official references checked while building:
 | 6. FP8 calibration | CPU reference, corpus/perplexity tools and ModelOpt preparation implemented | Model calibration and TensorRT-LLM measurements |
 | 7. Autoscaling | Durable queue, local autoscaler, drain tests and metrics implemented | GPU Kubernetes scale-out and interruption tests |
 | 8. Complexity gateway | Loopback routing/SSE proxy and labeled policy evaluation implemented | Real model quality; frontier calls require separate authorization |
-| 9. Tensor parallelism | Collective analyzer implemented; launch/collector preparation pending | Four GPU nodes with RDMA hardware |
+| 9. Tensor parallelism | Collective analyzer, four-node planner, combiner and collector source implemented | Four GPU nodes and CUDA/NCCL/RDMA validation |
 | 10. Semantic caching | SQLite/Redis/Qdrant adapters, HTTP cache and labeled reuse evaluator implemented | Real semantic embedding and model-answer-quality evaluation |
 | 11. GPU observability | Snapshot checks, fixture exporter, Grafana/Prometheus stack implemented | NVIDIA DCGM metrics and thermal tests |
 | 12. MoE profiling | Trace analysis and placement proposal tools implemented | Expert-parallel deployment |

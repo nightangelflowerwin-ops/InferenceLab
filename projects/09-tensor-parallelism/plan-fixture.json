@@ -1,0 +1,10 @@
+{
+  "nodes": ["10.0.0.11", "10.0.0.12", "10.0.0.13", "10.0.0.14"],
+  "gpus_per_node": 1,
+  "attention_heads": 64,
+  "model_snapshot": "/models/REPLACE_WITH_IMMUTABLE_SNAPSHOT",
+  "run_id": "four-node-fixture",
+  "socket_interface": "REPLACE_WITH_VERIFIED_INTERFACE",
+  "ib_hca": "REPLACE_WITH_VERIFIED_HCA",
+  "source_kind": "illustrative addresses and hardware assumptions; not a deployed cluster"
+}
