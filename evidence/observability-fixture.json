@@ -1,0 +1,31 @@
+{
+  "devices": [
+    {
+      "gpu_identity": "fixture-0",
+      "alerts": [
+        "clock_event_reported:fixture_thermal_event",
+        "framebuffer_utilization_above_95_percent",
+        "software_oom_counter_nonzero",
+        "temperature_above_configured_threshold"
+      ],
+      "missing_metrics": [],
+      "invalid_metrics": [],
+      "framebuffer_used_fraction": 0.9583333333333334,
+      "values": {
+        "inference_lab_fixture": 1.0,
+        "DCGM_FI_DEV_GPU_TEMP": 85.0,
+        "DCGM_FI_PROF_SM_OCCUPANCY": 0.15,
+        "DCGM_FI_PROF_SM_ACTIVE": 0.8,
+        "DCGM_FI_DEV_FB_USED": 23000.0,
+        "DCGM_FI_DEV_FB_FREE": 1000.0,
+        "DCGM_FI_PROF_PCIE_TX_BYTES": 1000000.0,
+        "DCGM_FI_PROF_PCIE_RX_BYTES": 2000000.0,
+        "DCGM_EXP_CLOCK_EVENTS_COUNT": 1.0,
+        "inference_gpu_oom_total": 1.0
+      },
+      "measurement_timestamps_present": false,
+      "fixture": true
+    }
+  ],
+  "evidence": "Analysis of supplied metric snapshots. Missing/sentinel values stay unknown; a temperature threshold or low occupancy alone does not diagnose hardware throttling."
+}

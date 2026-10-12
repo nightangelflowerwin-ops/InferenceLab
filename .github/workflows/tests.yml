@@ -57,3 +57,71 @@ jobs:
           INFERENCELAB_REDIS_PORT: '6379'
           INFERENCELAB_QDRANT_URL: http://127.0.0.1:6333
         run: python -m unittest test_semantic_cache.RealServiceTests -v
+  grafana-dashboard:
+    runs-on: ubuntu-latest
+    services:
+      grafana:
+        image: grafana/grafana:11.6.1
+        env:
+          GF_SECURITY_ADMIN_PASSWORD: inference-lab-ephemeral-ci-only
+        ports:
+          - 3000:3000
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Wait for Grafana readiness
+        run: |
+          python - <<'PY'
+          import time, urllib.request
+          for attempt in range(30):
+              try:
+                  with urllib.request.urlopen('http://127.0.0.1:3000/api/health', timeout=2) as response:
+                      assert response.status == 200
+                  break
+              except (OSError, AssertionError):
+                  time.sleep(1)
+          else:
+              raise SystemExit('Grafana did not become ready')
+          PY
+      - name: Real Grafana dashboard import and readback
+        env:
+          INFERENCELAB_GRAFANA_URL: http://127.0.0.1:3000
+          INFERENCELAB_GRAFANA_PASSWORD: inference-lab-ephemeral-ci-only
+        run: python -m unittest test_observability.GrafanaServiceTests -v
+      - name: Validate local fixture Compose configuration
+        env:
+          GRAFANA_PASSWORD: inference-lab-ephemeral-ci-only
+        run: docker compose -f projects/11-dcgm-dashboard/compose.yml config --quiet
+      - name: Start CPU fixture exporter and Prometheus
+        env:
+          GRAFANA_PASSWORD: inference-lab-ephemeral-ci-only
+        run: docker compose -f projects/11-dcgm-dashboard/compose.yml up -d fixture-exporter prometheus
+      - name: Verify actual Prometheus fixture scrape and alert rules
+        env:
+          GRAFANA_PASSWORD: inference-lab-ephemeral-ci-only
+        run: |
+          docker compose -f projects/11-dcgm-dashboard/compose.yml exec -T prometheus promtool check config /etc/prometheus/prometheus.yml
+          python - <<'PY'
+          import time, urllib.parse, urllib.request, json
+          expressions = ['inference_lab_fixture', 'DCGM_FI_PROF_SM_OCCUPANCY', 'DCGM_FI_PROF_PCIE_TX_BYTES']
+          for attempt in range(60):
+              try:
+                  for expression in expressions:
+                      query = urllib.parse.urlencode({'query': expression})
+                      with urllib.request.urlopen('http://127.0.0.1:9090/api/v1/query?' + query, timeout=2) as response:
+                          result = json.load(response)
+                      assert result['status'] == 'success' and result['data']['result']
+                      assert result['data']['result'][0]['metric']['source'] == 'fixture'
+                  break
+              except (OSError, AssertionError):
+                  time.sleep(1)
+          else:
+              raise SystemExit('Fixture metrics were not scraped by Prometheus')
+          PY
+      - name: Stop fixture stack
+        if: always()
+        env:
+          GRAFANA_PASSWORD: inference-lab-ephemeral-ci-only
+        run: docker compose -f projects/11-dcgm-dashboard/compose.yml down

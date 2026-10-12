@@ -1,0 +1,12 @@
+{
+  "source_kind": "synthetic corpus and tokenizer provenance for validation only",
+  "tokenizer": "fixture-tokenizer",
+  "tokenizer_revision": "fixture-tokenizer-v1",
+  "model_revision": "fixture-model-v1",
+  "documents": [
+    {"id":"cal","split":"calibration","text":"A short calibration fixture."},
+    {"id":"eval-1","split":"evaluation","text":"First held-out fixture."},
+    {"id":"eval-2","split":"evaluation","text":"Second held-out fixture."},
+    {"id":"eval-3","split":"evaluation","text":"Third held-out fixture."}
+  ]
+}

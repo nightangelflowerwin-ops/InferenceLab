@@ -1,0 +1,6 @@
+{
+  "source_kind": "synthetic activation scalars, not model activations",
+  "calibration_values": [0, 0.125, -0.5, 1, -1, 0.25, 0.75],
+  "heldout_values": [0, 0.125, -0.5, 1, -1, 0.25, 0.75, 2],
+  "clipping_percentile": 100
+}

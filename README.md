@@ -4,7 +4,7 @@
 
 An AI inference infrastructure portfolio: serving experiments, cache routing, GPU optimization and reproducible performance evidence.
 
-**Implemented:** serving/routing harnesses, opt-in cosine response caching with Redis/Qdrant adapters, durable token queue with fixture autoscaling, trace profilers, CPU fault recovery and weight streaming, plus CPU RMSNorm and speculative-sampling references. Triton kernel source and its GPU benchmark runner are prepared but unverified on GPU. **Measured GPU results:** none yet.
+**Implemented:** serving/routing harnesses, opt-in response caching with Redis/Qdrant adapters, queue autoscaling, trace profilers, CPU fault recovery/weight streaming, separate prefill/decode fixture pools, FP8/corpus/perplexity tools and a Grafana/Prometheus fixture stack. CPU RMSNorm/speculative references are tested; Triton and ModelOpt CUDA source is prepared but unverified on GPU. **Measured GPU results:** none yet.
 
 [Explore all 15 projects and their status](ROADMAP.md) | [Prefix routing implementation](projects/02-prefix-routing/README.md)
 
@@ -62,16 +62,16 @@ Official references checked while building:
 | 2. Prefix routing | Local HTTP/SSE proxy and routing tests implemented | Prove cache hits and TTFT with real replicas |
 | 3. Fused RMSNorm | CPU oracle tested; Triton source and GPU benchmark runner prepared | Triton compilation, correctness and GPU timing |
 | 4. Speculative decode | CPU rejection-sampling and generation reference tested; serving argv prepared | Compatible draft/target deployment, quality checks and timings |
-| 5. Prefill/decode pools | Planned: Routing and failure contract | Real KV transfer and separate GPU pools |
-| 6. FP8 calibration | Planned: Corpus and quality evaluation harness | Supported GPU and TensorRT-LLM measurements |
+| 5. Prefill/decode pools | Separate HTTP pools and signed CPU-state handoff implemented | Real KV transfer and separate GPU pools |
+| 6. FP8 calibration | CPU reference, corpus/perplexity tools and ModelOpt preparation implemented | Model calibration and TensorRT-LLM measurements |
 | 7. Autoscaling | Durable queue, local autoscaler, drain tests and metrics implemented | GPU Kubernetes scale-out and interruption tests |
 | 8. Complexity gateway | Loopback routing/SSE proxy and labeled policy evaluation implemented | Real model quality; frontier calls require separate authorization |
 | 9. Tensor parallelism | Collective analyzer implemented; launch/collector preparation pending | Four GPU nodes with RDMA hardware |
 | 10. Semantic caching | SQLite/Redis/Qdrant adapters, HTTP cache and labeled reuse evaluator implemented | Real semantic embedding and model-answer-quality evaluation |
-| 11. GPU observability | Planned: Dashboard definitions | NVIDIA DCGM metrics and thermal tests |
+| 11. GPU observability | Snapshot checks, fixture exporter, Grafana/Prometheus stack implemented | NVIDIA DCGM metrics and thermal tests |
 | 12. MoE profiling | Trace analysis and placement proposal tools implemented | Expert-parallel deployment |
 | 13. Chaos suite | Isolated fixture recovery implemented; real network tests pending | Recovery tests on an owned GPU cluster |
 | 14. Weight streaming | CPU safetensors stream loader implemented; resume/sharding pending | GPU transfer and cold-start measurement |
 | 15. Public teardown | Planned: Reproducible report templates | Three measured comparisons before publication |
 
-Supporting implementations or source preparation now cover projects 1, 2, 3, 4, 7, 8, 9, 10, 12, 13 and 14. Several still have additional non-GPU work; none claims real GPU performance. See ROADMAP.md and each project page for exact remaining work. [Local fixture evidence](evidence/README.md) is available for inspection.
+Supporting implementations or source preparation now cover projects 1 through 14. Project 15's benchmark reporting is still planned, and several implemented projects have additional non-GPU integration work. None claims real GPU performance. See ROADMAP.md and each project page for exact remaining work. [Local fixture evidence](evidence/README.md) is available for inspection.

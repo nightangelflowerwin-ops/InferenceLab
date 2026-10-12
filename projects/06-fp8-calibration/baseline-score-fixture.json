@@ -1,0 +1,59 @@
+{
+  "source_kind": "synthetic log probabilities, not model scores",
+  "corpus_manifest": {
+    "tokenizer": "fixture-tokenizer",
+    "tokenizer_revision": "fixture-tokenizer-v1",
+    "model_revision": "fixture-model-v1",
+    "documents": [
+      {
+        "id": "cal",
+        "split": "calibration",
+        "text_sha256": "5bacc75bae98697b46e879225b30abc727311efb5575a6c2037fb1decb24437e",
+        "utf8_bytes": 28
+      },
+      {
+        "id": "eval-1",
+        "split": "evaluation",
+        "text_sha256": "48f0fd05963feb18af220ee463e6af99052b12edbb4b2381abc4a144474303c5",
+        "utf8_bytes": 23
+      },
+      {
+        "id": "eval-2",
+        "split": "evaluation",
+        "text_sha256": "47f2d3f2cf0af424f03c0bd9d5c048ce5e0c57a918cb70f222dd67dad2bfe188",
+        "utf8_bytes": 24
+      },
+      {
+        "id": "eval-3",
+        "split": "evaluation",
+        "text_sha256": "b9254e3d45af564a623fe81a9cd276d96897275b4e7f57ad2b190f904a3446b2",
+        "utf8_bytes": 23
+      }
+    ],
+    "sha256": "3e433704a8c68f5cb0216cce09e16109da64e73b8b1ffefe4c77d9fdda435938"
+  },
+  "corpus_sha256": "3e433704a8c68f5cb0216cce09e16109da64e73b8b1ffefe4c77d9fdda435938",
+  "model_revision": "fixture-model-v1",
+  "tokenizer_revision": "fixture-tokenizer-v1",
+  "evaluation_policy": "synthetic one-token-per-document arithmetic exercise",
+  "scores": [
+    {
+      "document_id": "eval-1",
+      "token_index": 0,
+      "token_id": 1,
+      "logprob": -0.6931471805599453
+    },
+    {
+      "document_id": "eval-2",
+      "token_index": 0,
+      "token_id": 2,
+      "logprob": -0.6931471805599453
+    },
+    {
+      "document_id": "eval-3",
+      "token_index": 0,
+      "token_id": 3,
+      "logprob": -0.6931471805599453
+    }
+  ]
+}

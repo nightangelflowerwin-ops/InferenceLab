@@ -1,0 +1,31 @@
+groups:
+  - name: inference-lab-gpu
+    rules:
+      - alert: InferenceGpuTemperatureThreshold
+        expr: DCGM_FI_DEV_GPU_TEMP >= 80
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: GPU temperature exceeded the configured threshold
+          description: Verify source labels and vendor limits before diagnosing hardware throttling.
+      - alert: InferenceFramebufferPressure
+        expr: DCGM_FI_DEV_FB_USED / (DCGM_FI_DEV_FB_USED + DCGM_FI_DEV_FB_FREE) >= 0.95
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: Framebuffer usage is above 95 percent
+      - alert: InferenceSoftwareOomObserved
+        expr: increase(inference_gpu_oom_total[5m]) > 0
+        labels:
+          severity: warning
+        annotations:
+          summary: Serving software reported a new OOM
+      - alert: InferenceOccupancyTelemetryMissing
+        expr: absent(DCGM_FI_PROF_SM_OCCUPANCY)
+        for: 30s
+        labels:
+          severity: warning
+        annotations:
+          summary: Occupancy telemetry is absent, not zero

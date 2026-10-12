@@ -1,0 +1,8 @@
+DCGM_FI_DEV_GPU_TEMP, gauge, GPU temperature Celsius.
+DCGM_FI_DEV_FB_USED, gauge, Used framebuffer MiB.
+DCGM_FI_DEV_FB_FREE, gauge, Free framebuffer MiB.
+DCGM_FI_PROF_SM_ACTIVE, gauge, SM active ratio.
+DCGM_FI_PROF_SM_OCCUPANCY, gauge, SM resident warp ratio.
+DCGM_FI_PROF_PCIE_TX_BYTES, gauge, PCIe transmitted bytes per second.
+DCGM_FI_PROF_PCIE_RX_BYTES, gauge, PCIe received bytes per second.
+DCGM_EXP_CLOCK_EVENTS_COUNT, gauge, Samples with clock-event bits active in the configured window.

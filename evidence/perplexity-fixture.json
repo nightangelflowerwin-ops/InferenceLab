@@ -1,0 +1,21 @@
+{
+  "evaluated_tokens": 3,
+  "evaluated_documents": 3,
+  "baseline_perplexity": 2.0,
+  "quantized_perplexity": 4.0,
+  "perplexity_delta_quantized_minus_baseline": 2.0,
+  "relative_perplexity_change": 1.0,
+  "paired_document_bootstrap_delta_95_percent_interval": [
+    2.0,
+    2.0
+  ],
+  "seed": 42,
+  "provenance": {
+    "corpus_sha256": "3e433704a8c68f5cb0216cce09e16109da64e73b8b1ffefe4c77d9fdda435938",
+    "tokenizer_revision": "fixture-tokenizer-v1",
+    "model_revision": "fixture-model-v1",
+    "evaluation_policy": "synthetic one-token-per-document arithmetic exercise"
+  },
+  "evidence": "Arithmetic on supplied aligned next-token log probabilities; model execution and trace provenance require separate evidence",
+  "source_kind": "synthetic log probabilities, not model scores"
+}

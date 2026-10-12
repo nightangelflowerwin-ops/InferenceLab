@@ -1,0 +1,14 @@
+{
+  "dtype": "E4M3FN CPU reference",
+  "scale": 0.002232142857142857,
+  "calibration_absolute_bound": 1.0,
+  "inference_absolute_clip_bound": 1.0,
+  "clipping_percentile": 100,
+  "calibration_count": 7,
+  "heldout_count": 8,
+  "heldout_clipped_fraction": 0.125,
+  "heldout_rmse": 0.3537787992171241,
+  "heldout_max_absolute_error": 1.0,
+  "evidence": "CPU scalar rounding/clipping study, not model calibration, perplexity or GPU throughput",
+  "source_kind": "synthetic activation scalars, not model activations"
+}

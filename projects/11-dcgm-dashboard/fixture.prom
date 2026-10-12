@@ -1,0 +1,12 @@
+# Synthetic fixture samples. These are not measurements from this laptop.
+# TYPE inference_lab_fixture gauge
+inference_lab_fixture{gpu="fixture-0",source="fixture"} 1
+DCGM_FI_DEV_GPU_TEMP{gpu="fixture-0",source="fixture"} 85
+DCGM_FI_PROF_SM_OCCUPANCY{gpu="fixture-0",source="fixture"} 0.15
+DCGM_FI_PROF_SM_ACTIVE{gpu="fixture-0",source="fixture"} 0.8
+DCGM_FI_DEV_FB_USED{gpu="fixture-0",source="fixture"} 23000
+DCGM_FI_DEV_FB_FREE{gpu="fixture-0",source="fixture"} 1000
+DCGM_FI_PROF_PCIE_TX_BYTES{gpu="fixture-0",source="fixture"} 1000000
+DCGM_FI_PROF_PCIE_RX_BYTES{gpu="fixture-0",source="fixture"} 2000000
+DCGM_EXP_CLOCK_EVENTS_COUNT{gpu="fixture-0",source="fixture",clock_event="fixture_thermal_event",window_size_in_ms="300000"} 1
+inference_gpu_oom_total{gpu="fixture-0",source="fixture"} 1

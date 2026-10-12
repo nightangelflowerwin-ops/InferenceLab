@@ -1,0 +1,8 @@
+apiVersion: 1
+datasources:
+  - name: InferenceLab Prometheus
+    uid: inferencelab-prometheus
+    type: prometheus
+    access: proxy
+    url: http://prometheus:9090
+    isDefault: true

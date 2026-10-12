@@ -1,0 +1,20 @@
+{
+  "request_id": "demo",
+  "tokens": [
+    185,
+    203,
+    79,
+    114,
+    233,
+    152,
+    196,
+    132
+  ],
+  "producer": "prefill-0",
+  "consumer": "decode-0",
+  "handoff_bytes": 326,
+  "prefill_and_fetch_ms": 12.693100026808679,
+  "decode_and_transfer_ms": 4.833500017412007,
+  "fixture": true,
+  "evidence": "Actual loopback phase separation with signed CPU fixture state; no GPU KV transfer or inference"
+}
