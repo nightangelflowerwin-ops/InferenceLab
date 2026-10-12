@@ -1,0 +1,76 @@
+{
+  "evidence": "Actual loopback proxy/cache operations with echo backends and lexical fixture embeddings; no LLM, semantic embedding model or inference speedup measured",
+  "observations": [
+    {
+      "query": "What is a cat?",
+      "route": "local",
+      "cache": "miss",
+      "response": {
+        "id": "fixture-local-fixture",
+        "object": "chat.completion",
+        "created": 1791798605,
+        "model": "local-fixture",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "[local-fixture fixture, no model inference] What is a cat?"
+            },
+            "finish_reason": "stop"
+          }
+        ],
+        "fixture": true
+      }
+    },
+    {
+      "query": "What is a cat?",
+      "route": "local",
+      "cache": "hit",
+      "response": {
+        "id": "chatcmpl-cache-7baaa9487ebd408e819c99b5a2cf0e97",
+        "object": "chat.completion",
+        "created": 1791798605,
+        "model": "local-fixture",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "[local-fixture fixture, no model inference] What is a cat?"
+            },
+            "finish_reason": "stop"
+          }
+        ],
+        "fixture": true,
+        "cache": {
+          "hit": true,
+          "similarity": 0.9999999999999998,
+          "original_usage": null
+        }
+      }
+    },
+    {
+      "query": "Prove a theorem",
+      "route": "complex",
+      "cache": "miss",
+      "response": {
+        "id": "fixture-complex-fixture",
+        "object": "chat.completion",
+        "created": 1791798605,
+        "model": "complex-fixture",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "[complex-fixture fixture, no model inference] Prove a theorem"
+            },
+            "finish_reason": "stop"
+          }
+        ],
+        "fixture": true
+      }
+    }
+  ]
+}

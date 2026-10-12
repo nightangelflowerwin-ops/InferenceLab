@@ -4,7 +4,7 @@
 
 An AI inference infrastructure portfolio: serving experiments, cache routing, GPU optimization and reproducible performance evidence.
 
-**Implemented:** vLLM experiment runner, local prefix-routing proxy, durable token queue with fixture autoscaling, MoE/collective trace analyzers, isolated CPU fault/recovery suite and bounded CPU-memory weight streamer. **Measured GPU results:** none yet.
+**Implemented:** vLLM experiment runner, prefix and complexity routing proxies, opt-in cosine response caching with Redis/Qdrant adapters, durable token queue with fixture autoscaling, MoE/collective trace analyzers, isolated CPU fault/recovery suite and bounded CPU-memory weight streamer. **Measured GPU results:** none yet.
 
 [Explore all 15 projects and their status](ROADMAP.md) | [Prefix routing implementation](projects/02-prefix-routing/README.md)
 
@@ -65,13 +65,13 @@ Official references checked while building:
 | 5. Prefill/decode pools | Planned: Routing and failure contract | Real KV transfer and separate GPU pools |
 | 6. FP8 calibration | Planned: Corpus and quality evaluation harness | Supported GPU and TensorRT-LLM measurements |
 | 7. Autoscaling | Durable queue, local autoscaler, drain tests and metrics implemented | GPU Kubernetes scale-out and interruption tests |
-| 8. Complexity gateway | Planned: Routing policy and offline evaluation | Local model quality; frontier calls require separate authorization |
+| 8. Complexity gateway | Loopback routing/SSE proxy and labeled policy evaluation implemented | Real model quality; frontier calls require separate authorization |
 | 9. Tensor parallelism | Collective analyzer implemented; launch/collector preparation pending | Four GPU nodes with RDMA hardware |
-| 10. Semantic caching | Planned: Local cache, namespace and stale-answer tests | Quality evaluation beyond a similarity threshold |
+| 10. Semantic caching | SQLite/Redis/Qdrant adapters, HTTP cache and labeled reuse evaluator implemented | Real semantic embedding and model-answer-quality evaluation |
 | 11. GPU observability | Planned: Dashboard definitions | NVIDIA DCGM metrics and thermal tests |
 | 12. MoE profiling | Trace analysis and placement proposal tools implemented | Expert-parallel deployment |
 | 13. Chaos suite | Isolated fixture recovery implemented; real network tests pending | Recovery tests on an owned GPU cluster |
 | 14. Weight streaming | CPU safetensors stream loader implemented; resume/sharding pending | GPU transfer and cold-start measurement |
 | 15. Public teardown | Planned: Reproducible report templates | Three measured comparisons before publication |
 
-Supporting implementations now cover projects 1, 2, 7, 9, 12, 13 and 14. Several still have additional non-GPU work; none claims real GPU performance. See ROADMAP.md and each project page for exact remaining work. [Local fixture evidence](evidence/README.md) is available for inspection.
+Supporting implementations now cover projects 1, 2, 7, 8, 9, 10, 12, 13 and 14. Several still have additional non-GPU work; none claims real GPU performance. See ROADMAP.md and each project page for exact remaining work. [Local fixture evidence](evidence/README.md) is available for inspection.

@@ -1,0 +1,105 @@
+{
+  "cases": 8,
+  "accuracy": 0.75,
+  "confusion": {
+    "local": {
+      "local": 3,
+      "complex": 1
+    },
+    "complex": {
+      "local": 1,
+      "complex": 3
+    }
+  },
+  "details": [
+    {
+      "id": "greeting",
+      "expected": "local",
+      "route": "local",
+      "reasons": [
+        "small_text"
+      ],
+      "estimated_input_tokens": 3,
+      "byte_entropy_bits": 2.845350936622437,
+      "caveat": "Byte entropy and UTF-8 length are heuristics, not tokenizer counts or reasoning difficulty."
+    },
+    {
+      "id": "translation",
+      "expected": "local",
+      "route": "local",
+      "reasons": [
+        "small_text"
+      ],
+      "estimated_input_tokens": 8,
+      "byte_entropy_bits": 3.9232314287976204,
+      "caveat": "Byte entropy and UTF-8 length are heuristics, not tokenizer counts or reasoning difficulty."
+    },
+    {
+      "id": "definition",
+      "expected": "local",
+      "route": "local",
+      "reasons": [
+        "small_text"
+      ],
+      "estimated_input_tokens": 4,
+      "byte_entropy_bits": 2.9852281360342516,
+      "caveat": "Byte entropy and UTF-8 length are heuristics, not tokenizer counts or reasoning difficulty."
+    },
+    {
+      "id": "proof",
+      "expected": "complex",
+      "route": "complex",
+      "reasons": [
+        "reasoning_cue"
+      ],
+      "estimated_input_tokens": 11,
+      "byte_entropy_bits": 3.8176400059662177,
+      "caveat": "Byte entropy and UTF-8 length are heuristics, not tokenizer counts or reasoning difficulty."
+    },
+    {
+      "id": "debugging",
+      "expected": "complex",
+      "route": "complex",
+      "reasons": [
+        "reasoning_cue"
+      ],
+      "estimated_input_tokens": 10,
+      "byte_entropy_bits": 3.8278475418785787,
+      "caveat": "Byte entropy and UTF-8 length are heuristics, not tokenizer counts or reasoning difficulty."
+    },
+    {
+      "id": "architecture",
+      "expected": "complex",
+      "route": "complex",
+      "reasons": [
+        "reasoning_cue"
+      ],
+      "estimated_input_tokens": 13,
+      "byte_entropy_bits": 3.862547645426435,
+      "caveat": "Byte entropy and UTF-8 length are heuristics, not tokenizer counts or reasoning difficulty."
+    },
+    {
+      "id": "simple-comparison-counterexample",
+      "expected": "local",
+      "route": "complex",
+      "reasons": [
+        "reasoning_cue"
+      ],
+      "estimated_input_tokens": 9,
+      "byte_entropy_bits": 4.12728313431329,
+      "caveat": "Byte entropy and UTF-8 length are heuristics, not tokenizer counts or reasoning difficulty."
+    },
+    {
+      "id": "hard-question-without-cue-counterexample",
+      "expected": "complex",
+      "route": "local",
+      "reasons": [
+        "small_text"
+      ],
+      "estimated_input_tokens": 26,
+      "byte_entropy_bits": 4.172561721653632,
+      "caveat": "Byte entropy and UTF-8 length are heuristics, not tokenizer counts or reasoning difficulty."
+    }
+  ],
+  "evidence": "Agreement with supplied routing labels; does not measure model answer quality or API cost savings."
+}

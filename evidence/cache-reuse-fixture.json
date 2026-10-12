@@ -1,0 +1,93 @@
+{
+  "results": [
+    {
+      "threshold": 0.98,
+      "queries": 3,
+      "hits": 2,
+      "incorrect_reuses": 1,
+      "hit_rate": 0.6666666666666666,
+      "incorrect_reuse_rate": 0.3333333333333333,
+      "incorrect_fraction_of_hits": 0.5,
+      "details": [
+        {
+          "query_id": "equivalent",
+          "hit": true,
+          "incorrect_reuse": false,
+          "similarity": 1
+        },
+        {
+          "query_id": "high-similarity-wrong-answer",
+          "hit": true,
+          "incorrect_reuse": true,
+          "similarity": 0.9950371902099893
+        },
+        {
+          "query_id": "different-tenant",
+          "hit": false,
+          "incorrect_reuse": false,
+          "similarity": null
+        }
+      ]
+    },
+    {
+      "threshold": 0.99,
+      "queries": 3,
+      "hits": 2,
+      "incorrect_reuses": 1,
+      "hit_rate": 0.6666666666666666,
+      "incorrect_reuse_rate": 0.3333333333333333,
+      "incorrect_fraction_of_hits": 0.5,
+      "details": [
+        {
+          "query_id": "equivalent",
+          "hit": true,
+          "incorrect_reuse": false,
+          "similarity": 1
+        },
+        {
+          "query_id": "high-similarity-wrong-answer",
+          "hit": true,
+          "incorrect_reuse": true,
+          "similarity": 0.9950371902099893
+        },
+        {
+          "query_id": "different-tenant",
+          "hit": false,
+          "incorrect_reuse": false,
+          "similarity": null
+        }
+      ]
+    },
+    {
+      "threshold": 0.9999,
+      "queries": 3,
+      "hits": 1,
+      "incorrect_reuses": 0,
+      "hit_rate": 0.3333333333333333,
+      "incorrect_reuse_rate": 0.0,
+      "incorrect_fraction_of_hits": 0.0,
+      "details": [
+        {
+          "query_id": "equivalent",
+          "hit": true,
+          "incorrect_reuse": false,
+          "similarity": 1
+        },
+        {
+          "query_id": "high-similarity-wrong-answer",
+          "hit": false,
+          "incorrect_reuse": false,
+          "similarity": null
+        },
+        {
+          "query_id": "different-tenant",
+          "hit": false,
+          "incorrect_reuse": false,
+          "similarity": null
+        }
+      ]
+    }
+  ],
+  "evidence": "Labeled vector replay only. Similarity does not establish answer equivalence; input provenance determines whether this is fixture or real embedding evidence.",
+  "source_kind": "synthetic labeled vectors, not model embeddings"
+}

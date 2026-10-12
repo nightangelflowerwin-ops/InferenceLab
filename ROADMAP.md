@@ -11,9 +11,9 @@ All 15 projects are indexed here for public visibility. Planned entries are requ
 | [Disaggregated Prefill Decode Cluster](projects/05-prefill-decode/README.md) | Planned |
 | [FP8 Quantization and Calibration Harness](projects/06-fp8-calibration/README.md) | Planned |
 | [Queue Based GPU Autoscaler](projects/07-gpu-autoscaler/README.md) | Local durable queue, fixture autoscaler, drain workers and metrics tested; KEDA integration template supplied |
-| [Complexity Routing AI Gateway](projects/08-complexity-gateway/README.md) | Planned |
+| [Complexity Routing AI Gateway](projects/08-complexity-gateway/README.md) | Loopback routing/SSE gateway and policy evaluator implemented; real model quality pending |
 | [Multi Node Tensor Parallelism](projects/09-tensor-parallelism/README.md) | Collective trace analyzer tested; launch/collector preparation remains |
-| [Semantic Cache Layer](projects/10-semantic-cache/README.md) | Planned |
+| [Semantic Cache Layer](projects/10-semantic-cache/README.md) | SQLite cache, Redis/Qdrant adapters and labeled reuse evaluator implemented; real service CI and semantic model evidence separated |
 | [DCGM Observability and Throttling Dashboard](projects/11-dcgm-dashboard/README.md) | Planned |
 | [MoE Load Profiler](projects/12-moe-profiler/README.md) | Trace analyzer and offline placement proposals tested; GPU collection pending |
 | [Inference Chaos and Fault Tolerance Suite](projects/13-inference-chaos/README.md) | CPU fixture recovery suite tested; network and durable recovery work remains |

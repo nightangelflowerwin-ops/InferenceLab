@@ -1,0 +1,10 @@
+{
+  "source_kind": "synthetic labeled vectors, not model embeddings",
+  "thresholds": [0.98, 0.99, 0.9999],
+  "corpus": [{"namespace":"fixture-tenant-model-settings","embedding":[1,0],"answer_id":"cat-definition"}],
+  "queries": [
+    {"id":"equivalent","namespace":"fixture-tenant-model-settings","embedding":[1,0],"acceptable_answer_ids":["cat-definition"]},
+    {"id":"high-similarity-wrong-answer","namespace":"fixture-tenant-model-settings","embedding":[1,0.1],"acceptable_answer_ids":["dog-definition"]},
+    {"id":"different-tenant","namespace":"other-tenant","embedding":[1,0],"acceptable_answer_ids":["cat-definition"]}
+  ]
+}

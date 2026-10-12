@@ -1,0 +1,10 @@
+[
+  {"id":"greeting","expected":"local","request":{"messages":[{"role":"user","content":"Hello there"}]}},
+  {"id":"translation","expected":"local","request":{"messages":[{"role":"user","content":"Translate bonjour into English"}]}},
+  {"id":"definition","expected":"local","request":{"messages":[{"role":"user","content":"What is a cat?"}]}},
+  {"id":"proof","expected":"complex","request":{"messages":[{"role":"user","content":"Prove the theorem and state your assumptions"}]}},
+  {"id":"debugging","expected":"complex","request":{"messages":[{"role":"user","content":"Debug this distributed race condition"}]}},
+  {"id":"architecture","expected":"complex","request":{"messages":[{"role":"user","content":"Compare the tradeoffs in this database architecture"}]}},
+  {"id":"simple-comparison-counterexample","expected":"local","request":{"messages":[{"role":"user","content":"Compare 1 and 2: which is bigger?"}]}},
+  {"id":"hard-question-without-cue-counterexample","expected":"complex","request":{"messages":[{"role":"user","content":"Find every integer solution to x squared plus y squared equals z squared, with a rigorous justification"}]}}
+]
