@@ -67,14 +67,15 @@ def handler(queue, pool, token, port):
                 data = json.loads(self.rfile.read(count))
                 if not isinstance(data, dict):
                     raise ValueError('A JSON object is required')
-                if self.path == '/api/jobs':
+                if self.path in ('/api/jobs', '/api/demo'):
                     # Dashboard is deliberately for bounded local sessions, not unbounded ingestion.
                     with queue.transaction() as db:
                         if db.execute('SELECT count(*) FROM jobs').fetchone()[0] >= 5000:
                             raise ValueError('This session has 5000 jobs; use a fresh database')
-                    result = submit(queue, data.get('name'), data.get('text'), data.get('id'))
-                elif self.path == '/api/demo':
-                    result = submit(queue, 'recovery-demo.txt', 'A worker can crash. Another worker recovers this real text report.', delay=6)
+                    if self.path == '/api/jobs':
+                        result = submit(queue, data.get('name'), data.get('text'), data.get('id'))
+                    else:
+                        result = submit(queue, 'recovery-demo.txt', 'A worker can crash. Another worker recovers this real text report.', delay=6)
                 elif self.path == '/api/crash':
                     result = pool.crash_busy()
                 else:
@@ -99,9 +100,11 @@ def serve(db, port=8765, workers=3, open_browser=True):
     signal.signal(signal.SIGINT, request_stop)
     signal.signal(signal.SIGTERM, request_stop)
     def supervise():
-        while not stop.wait(.2):
-            pool.tick()
-        server.shutdown()
+        try:
+            while not stop.wait(.2):
+                pool.tick()
+        finally:
+            server.shutdown()
     thread = threading.Thread(target=supervise)
     pool.tick()
     thread.start()

@@ -17,6 +17,8 @@ jobs:
         with:
           python-version: '3.11'
       - run: python -m unittest discover -s . -p "test_*.py" -v
+      - name: Validate dashboard JavaScript syntax
+        run: node --check job_dashboard.js
   cache-services:
     runs-on: ubuntu-latest
     services:

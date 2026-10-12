@@ -50,7 +50,7 @@ def jobs(queue, limit=100):
                  'result': json.loads(row['result']) if row['result'] else None} for row in rows]
 
 
-def run_worker(db_path, worker_id, lease_seconds=2):
+def run_worker(db_path, worker_id, lease_seconds=2, session=None):
     queue = TokenQueue(db_path)
     stop = threading.Event()
     signal.signal(signal.SIGTERM, lambda *_: stop.set())
@@ -58,6 +58,11 @@ def run_worker(db_path, worker_id, lease_seconds=2):
     queue.register(worker_id)
     try:
         while not stop.is_set():
+            if session:
+                with queue.transaction() as db:
+                    owner = db.execute('SELECT expires FROM runner_sessions WHERE id=?', (session,)).fetchone()
+                if owner is None or owner['expires'] <= time.time():
+                    break
             lease = queue.claim(worker_id, lease_seconds)
             if lease is None:
                 with queue.transaction() as db:
@@ -97,9 +102,15 @@ class ProcessPool:
         self.processes = {}
         self.lock = threading.RLock()
         self.closing = False
+        self.session = uuid.uuid4().hex
+        with queue.transaction() as db:
+            db.execute('CREATE TABLE IF NOT EXISTS runner_sessions(id TEXT PRIMARY KEY,expires REAL NOT NULL)')
 
     def tick(self):
         with self.lock:
+            with self.queue.transaction() as db:
+                db.execute('INSERT OR REPLACE INTO runner_sessions VALUES(?,?)', (self.session, time.time()+5))
+                db.execute('DELETE FROM runner_sessions WHERE expires<? AND id!=?', (time.time()-60, self.session))
             for worker_id, process in list(self.processes.items()):
                 if process.poll() is not None:
                     self.queue.drain(worker_id)
@@ -108,7 +119,7 @@ class ProcessPool:
                 worker_id = 'process-' + uuid.uuid4().hex[:12]
                 flags = subprocess.CREATE_NO_WINDOW if sys.platform == 'win32' else 0
                 process = subprocess.Popen([sys.executable, str(Path(__file__).resolve()), 'worker',
-                    '--db', str(Path(self.queue.path).resolve()), '--id', worker_id],
+                    '--db', str(Path(self.queue.path).resolve()), '--id', worker_id, '--session', self.session],
                     stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
                     creationflags=flags)
                 self.processes[worker_id] = process
@@ -131,6 +142,8 @@ class ProcessPool:
     def close(self):
         with self.lock:
             self.closing = True
+            with self.queue.transaction() as db:
+                db.execute('UPDATE runner_sessions SET expires=0 WHERE id=?', (self.session,))
             processes = list(self.processes.items())
             for worker_id, _ in processes:
                 self.queue.drain(worker_id)
@@ -179,11 +192,12 @@ def main():
     parser.add_argument('--db', type=Path, default=Path('results/job-runner/jobs.db'))
     parser.add_argument('--id', default='process-' + uuid.uuid4().hex[:12])
     parser.add_argument('--folder', type=Path)
+    parser.add_argument('--session', help=argparse.SUPPRESS)
     parser.add_argument('--out', type=Path)
     args = parser.parse_args()
     args.db.parent.mkdir(parents=True, exist_ok=True)
     if args.action == 'worker':
-        run_worker(args.db, args.id)
+        run_worker(args.db, args.id, session=args.session)
         return
     queue = TokenQueue(args.db)
     if args.action == 'submit':

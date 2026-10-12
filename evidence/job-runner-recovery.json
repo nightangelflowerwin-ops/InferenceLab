@@ -1,0 +1,53 @@
+{
+  "job": "recovery-b1dfcb7f88cd",
+  "first_attempt": 1,
+  "killed_process": {
+    "worker": "process-3ed031bb2d4d",
+    "job": "recovery-b1dfcb7f88cd",
+    "pid": 41736
+  },
+  "final": {
+    "id": "recovery-b1dfcb7f88cd",
+    "name": "recovery-demo.txt",
+    "state": "done",
+    "worker": null,
+    "attempts": 2,
+    "created": 1791810475.9068222,
+    "result": {
+      "name": "recovery-demo.txt",
+      "words": 7,
+      "characters": 50,
+      "lines": 1,
+      "utf8_bytes": 50,
+      "sha256": "affc0a03424d2f467cf3aa5255a9388bbecebb5034bfb32c188f300d617d98b8",
+      "top_words": [
+        [
+          "recovery",
+          2
+        ],
+        [
+          "works",
+          1
+        ],
+        [
+          "keeps",
+          1
+        ],
+        [
+          "the",
+          1
+        ],
+        [
+          "correct",
+          1
+        ],
+        [
+          "report",
+          1
+        ]
+      ]
+    }
+  },
+  "recovered": true,
+  "scope": "Actual killed worker process, expired lease and recomputed real text report on one host. SQLite coordinator remains available; no multi-machine availability claim."
+}

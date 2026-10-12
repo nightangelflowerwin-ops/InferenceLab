@@ -8,6 +8,8 @@ An AI inference infrastructure portfolio: serving experiments, cache routing, GP
 
 [Explore all 15 projects and their status](ROADMAP.md) | [Prefix routing implementation](projects/02-prefix-routing/README.md)
 
+**Try Relay:** [reliable text jobs with a live dashboard](projects/16-reliable-job-runner/README.md). Run `python job_dashboard.py` to upload files, watch three worker processes and demonstrate recovery by crashing a busy worker. Python standard library only.
+
 Started 2026-10-12. Project 1: high-throughput vLLM serving-engine tuning.
 
 ## Current evidence

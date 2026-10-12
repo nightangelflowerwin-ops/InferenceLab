@@ -1,0 +1,11 @@
+{
+  "sample_file_upload": "notes.txt",
+  "sample_word_count": 31,
+  "recovery_job_attempts": 2,
+  "report_download_verified": true,
+  "console_errors": 0,
+  "responsive_viewport_width": 390,
+  "document_width": 375,
+  "expanded_report_persisted_across_polling": true,
+  "scope": "Actual browser interactions with local HTTP server and managed worker processes. Public sample text only."
+}

@@ -2,7 +2,7 @@ import tempfile
 from pathlib import Path
 import unittest
 
-from job_runner import submit, text_report, recovery_demo, jobs
+from job_runner import submit, text_report, recovery_demo, jobs, ProcessPool
 from queue_control import TokenQueue
 
 
@@ -27,6 +27,19 @@ class JobRunnerTests(unittest.TestCase):
             self.assertTrue(result['recovered'])
             self.assertEqual(result['final']['attempts'], 2)
             self.assertEqual(result['final']['result']['words'], 7)
+
+    def test_managed_workers_exit_when_supervisor_session_expires(self):
+        with tempfile.TemporaryDirectory() as directory:
+            queue = TokenQueue(Path(directory)/'jobs.db')
+            pool = ProcessPool(queue,1)
+            try:
+                pool.tick()
+                with queue.transaction() as db:
+                    db.execute('UPDATE runner_sessions SET expires=0 WHERE id=?',(pool.session,))
+                process = next(iter(pool.processes.values()))
+                self.assertEqual(process.wait(timeout=10),0)
+            finally:
+                pool.close()
 
 
 if __name__ == '__main__':

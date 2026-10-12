@@ -1,0 +1,3 @@
+Distributed systems share work through messages.
+Workers can fail. Durable jobs and leases let another worker recover unfinished work.
+This file is a real text input for Relay's word-count report.
